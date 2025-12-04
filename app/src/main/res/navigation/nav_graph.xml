@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listTicketFragment">
+
+    <fragment
+        android:id="@+id/listTicketFragment"
+        android:name="com.example.ticketnator.ui.fragments.ListTicketFragment"
+        android:label="Ticketnator"
+        tools:layout="@layout/fragment_list_ticket">
+        <action
+            android:id="@+id/action_listTicketFragment_to_detailsTicketFragment"
+            app:destination="@id/detailsTicketFragment" />
+        <action
+            android:id="@+id/action_listTicketFragment_to_formTicketFragment"
+            app:destination="@id/formTicketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsTicketFragment"
+        android:name="com.example.ticketnator.ui.fragments.DetailsTicketFragment"
+        android:label="Details Todo">
+        <action
+            android:id="@+id/action_detailsTodoFragment_to_listTodoFragment"
+            app:destination="@id/listTicketFragment" />
+        <argument
+            android:name="ticket"
+            app:argType="com.example.ticketnator.data.model.Ticket" />
+    </fragment>
+    <fragment
+        android:id="@+id/formTicketFragment"
+        android:name="com.example.ticketnator.ui.fragments.FormTicketFragment"
+        android:label="Add Ticket" >
+        <action
+            android:id="@+id/action_formTicketFragment_to_listTicketFragment"
+            app:destination="@id/listTicketFragment" />
+    </fragment>
+</navigation>
