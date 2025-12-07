@@ -41,6 +41,9 @@ class ListTicketFragment : Fragment() {
             onDetails = { ticket ->
                 goToDetails(ticket = ticket)
             },
+            onEdit = { ticket ->
+                editTicket(ticket = ticket)
+            }
         )
         rc.adapter = adapter
 
@@ -52,6 +55,11 @@ class ListTicketFragment : Fragment() {
 
     private fun goToDetails(ticket: Ticket) {
         val action = ListTicketFragmentDirections.actionListTicketFragmentToDetailsTicketFragment(ticket)
+        findNavController().navigate(action)
+    }
+
+    private fun editTicket(ticket: Ticket) {
+        val action = ListTicketFragmentDirections.actionListTicketFragmentToFormUpdateTicketFragment(ticket)
         findNavController().navigate(action)
     }
 }

@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import com.example.ticketnator.data.local.entity.TicketEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -18,6 +19,9 @@ interface TicketDao {
 
     @Query("SELECT * FROM tickets WHERE id = :id")
     fun getTicketById(id: Int): Flow<TicketEntity>
+
+    @Update
+    suspend fun update(ticket: TicketEntity): Int
 
     @Delete
     suspend fun delete(ticket: TicketEntity)

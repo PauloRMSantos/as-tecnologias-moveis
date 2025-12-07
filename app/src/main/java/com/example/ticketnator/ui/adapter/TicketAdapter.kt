@@ -8,7 +8,8 @@ import com.example.ticketnator.databinding.TicketItemListBinding
 
 class TicketAdapter(
     private val onDelete: (Ticket) -> Unit,
-    private val onDetails: (Ticket) -> Unit
+    private val onDetails: (Ticket) -> Unit,
+    private val onEdit: (Ticket) -> Unit
 ) : ListAdapter<Ticket, TicketViewHolder>(TicketDiffCallback()){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TicketViewHolder {
@@ -16,7 +17,8 @@ class TicketAdapter(
         return TicketViewHolder(
             binding = binding,
             onDelete = onDelete,
-            onDetails = onDetails
+            onDetails = onDetails,
+            onEdit = onEdit
         )
     }
 

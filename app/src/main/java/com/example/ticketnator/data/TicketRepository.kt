@@ -10,6 +10,7 @@ class TicketRepository(private val dataSource: TicketLocalDataSource) {
     fun getAllTickets() = dataSource.getAllTickets().map { it.map { it.convertToModel() }  }
     fun getTicketById(id: Int) = dataSource.getTicketById(id).map { it.convertToModel() }
 
+    suspend fun update(EditedTicket: Ticket) = dataSource.update(EditedTicket.convertToEntity())
     suspend fun remove(ticket: Ticket) = dataSource.delete(ticket.convertToEntity())
     suspend fun add(ticket: Ticket) = dataSource.insert(ticket.convertToEntity())
 

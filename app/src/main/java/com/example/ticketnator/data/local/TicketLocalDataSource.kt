@@ -9,7 +9,7 @@ class TicketLocalDataSource(private val ticketDao: TicketDao)  {
     fun getTicketById(id: Int) = ticketDao.getTicketById(id)
 
     suspend fun insert(ticket: TicketEntity) = ticketDao.insert(ticket)
-
+    suspend fun update(ticket: TicketEntity) = ticketDao.update(ticket)
     suspend fun delete(ticket: TicketEntity) = ticketDao.delete(ticket)
 
 }

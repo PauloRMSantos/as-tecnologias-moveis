@@ -16,13 +16,16 @@
         <action
             android:id="@+id/action_listTicketFragment_to_formTicketFragment"
             app:destination="@id/formTicketFragment" />
+        <action
+            android:id="@+id/action_listTicketFragment_to_formUpdateTicketFragment"
+            app:destination="@id/formUpdateTicketFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsTicketFragment"
         android:name="com.example.ticketnator.ui.fragments.DetailsTicketFragment"
-        android:label="Details Todo">
+        android:label="Detalhes do ticket">
         <action
-            android:id="@+id/action_detailsTodoFragment_to_listTodoFragment"
+            android:id="@+id/action_detailsTicketFragment_to_listTicketFragment"
             app:destination="@id/listTicketFragment" />
         <argument
             android:name="ticket"
@@ -35,5 +38,16 @@
         <action
             android:id="@+id/action_formTicketFragment_to_listTicketFragment"
             app:destination="@id/listTicketFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formUpdateTicketFragment"
+        android:name="com.example.ticketnator.ui.fragments.FormUpdateTicketFragment"
+        android:label="Edit Ticket">
+        <action
+            android:id="@+id/action_formUpdateTicketFragment_to_listTicketFragment"
+            app:destination="@id/listTicketFragment" />
+        <argument
+            android:name="ticket"
+            app:argType="com.example.ticketnator.data.model.Ticket" />
     </fragment>
 </navigation>

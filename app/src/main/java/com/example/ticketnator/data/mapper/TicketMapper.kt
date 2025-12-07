@@ -5,6 +5,7 @@ import com.example.ticketnator.data.model.Ticket
 
 fun Ticket.convertToEntity() =
     TicketEntity(
+        id = this.id,
         title = this.title,
         description = this.description,
         createAt = this.createAt,
@@ -15,5 +16,5 @@ fun TicketEntity.convertToModel() =
         id = this.id,
         title = this.title,
         description = this.description,
-        createAt
+        createAt = this.createAt,
     )

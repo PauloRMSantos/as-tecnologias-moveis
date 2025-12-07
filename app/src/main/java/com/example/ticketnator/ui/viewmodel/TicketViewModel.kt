@@ -21,15 +21,15 @@ class TicketViewModel(application: Application) : AndroidViewModel(application) 
     private val _ticketList = repository.getAllTickets().asLiveData()
     val ticketList: LiveData<List<Ticket>> = _ticketList
 
-    init {
-        repository.getAllTickets()
-    }
-
     fun removeTicket(ticket: Ticket) = viewModelScope.launch(Dispatchers.IO) {
         repository.remove(ticket)
     }
 
     fun addTicket(ticket: Ticket) = viewModelScope.launch(Dispatchers.IO) {
         repository.add(ticket)
+    }
+
+    fun updateTicket(ticket: Ticket) = viewModelScope.launch(Dispatchers.IO) {
+        repository.update(ticket)
     }
 }
